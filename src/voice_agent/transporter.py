@@ -14,13 +14,11 @@ class Transporter():
     def __init__(self) ->None:
         pass
     
-    def build_stt(self,provider:str, config) ->None:
-        stt= deepgram.STT()
-        pass
+    def build_stt(self) ->None:
+        self.stt= deepgram.STT(model="nova-3",language="es-419")        
     
-    def build_tts(sefl,provider:str, config) ->None:
-        stt= elevenlabs()
-        pass
+    def build_tts(self) ->None:
+        self.tts= elevenlabs.TTS(model="eleven_flash_v2_5")
     
     def build_transporter_session(self) -> None:
         self.session = AgentSession(
@@ -30,7 +28,7 @@ class Transporter():
         
     async def start_transporter_session(self,ctx, agent) -> None:
         await self.session.start(
-            agent=agent(),
+            agent=agent,
             room=ctx.room,            
         )
         await ctx.connect()
