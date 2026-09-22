@@ -1,0 +1,8 @@
+port: 7880
+
+rtc:
+  tcp_port: 7881
+  udp_port: 7882
+
+keys:
+  dev: DU6ncy94MQliTbmwM0PtNSkF9vsaqa6w
